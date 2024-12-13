@@ -1,4 +1,3 @@
-# auth_utils.py
 import sqlite3
 import hashlib
 from config import DATABASE_PATH
@@ -31,6 +30,16 @@ def init_database():
             INSERT INTO users (username, password, role) 
             VALUES (?, ?, ?)
             ''', ("Shammi Kapoor", default_password, "boss"))
+
+        # Check if database user exists
+        cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?", ("DatabaseAdmin",))
+        if cursor.fetchone()[0] == 0:
+            # Add default database user
+            db_password = hash_password("database123")
+            cursor.execute('''
+            INSERT INTO users (username, password, role) 
+            VALUES (?, ?, ?)
+            ''', ("DatabaseAdmin", db_password, "database"))
 
         conn.commit()
 
