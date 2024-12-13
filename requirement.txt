@@ -3,3 +3,6 @@ sqlite3
 hashlib
 pathlib
 datetime
+pandas
+shutil 
+os
