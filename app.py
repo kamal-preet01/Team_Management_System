@@ -72,8 +72,17 @@ def main_page():
     elif menu == "Create Task":
         st.markdown(
             """
-            <h1 style="text-align: center; font-family: 'Arial', sans-serif; color: #4B9CD3; font-size: 36px;">
-                Create New Tasks
+            <h1 style="
+                text-align: center; 
+                font-family: 'Trebuchet MS', sans-serif; 
+                background: linear-gradient(to right, #4B9CD3, #34D399); 
+                -webkit-background-clip: text; 
+                color: transparent; 
+                font-size: 40px; 
+                font-weight: bold; 
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            ">
+                 Create New Tasks
             </h1>
             """,
             unsafe_allow_html=True
@@ -104,8 +113,17 @@ def main_page():
     elif menu == "Team Overview" and st.session_state.role == 'boss':
         st.markdown(
             """
-            <h1 style="text-align: center; font-family: 'Arial', sans-serif; color: #4B9CD3; font-size: 36px;">
-                Team Overview
+            <h1 style="
+                text-align: center; 
+                font-family: 'Trebuchet MS', sans-serif; 
+                background: linear-gradient(to right, #4B9CD3, #34D399); 
+                -webkit-background-clip: text; 
+                color: transparent; 
+                font-size: 40px; 
+                font-weight: bold; 
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            ">
+                 Team Overview
             </h1>
             """,
             unsafe_allow_html=True
@@ -120,8 +138,17 @@ def main_page():
     elif menu == "Self-Assign Task":
         st.markdown(
             """
-            <h1 style="text-align: center; font-family: 'Arial', sans-serif; color: #4B9CD3; font-size: 36px;">
-                Self Assign Tasks
+            <h1 style="
+                text-align: center; 
+                font-family: 'Trebuchet MS', sans-serif; 
+                background: linear-gradient(to right, #4B9CD3, #34D399); 
+                -webkit-background-clip: text; 
+                color: transparent; 
+                font-size: 40px; 
+                font-weight: bold; 
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            ">
+                 Self-Assign Task
             </h1>
             """,
             unsafe_allow_html=True
@@ -157,10 +184,55 @@ def main_page():
 
 
 st.set_page_config(
-    page_title="Team Task Manager",
+    page_title="Team Tasker",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Custom CSS for styling the title and making it mobile-friendly
+st.markdown("""
+    <style>
+        /* Stylish title with gradient, shadow, and animation */
+        h1 {
+            font-size: 48px;  /* Larger title font for desktop */
+            font-weight: 700;  /* Bold title */
+            text-align: center;
+            background: linear-gradient(45deg, #4CAF50, #FF5722);  /* Gradient color */
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);  /* Subtle text shadow */
+            animation: titleAnimation 2s ease-in-out infinite;  /* Animation for smooth transitions */
+            margin-top: 40px;
+        }
+
+        /* Mobile specific styling */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;  /* Smaller title font on mobile */
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);  /* Slightly softer shadow on mobile */
+            }
+        }
+
+        /* Animation for title */
+        @keyframes titleAnimation {
+            0% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.7; }
+        }
+
+        /* Optional: Style the sidebar to match the modern theme */
+        .css-18e3th9 {
+            background-color: #f5f5f5;  /* Light gray background for the sidebar */
+            border-right: 2px solid #e0e0e0;  /* Light border to separate sidebar */
+        }
+
+        /* Content padding adjustments */
+        .css-12oz5g7 {
+            padding: 20px;  /* Adding padding around the content */
+        }
+
+    </style>
+""", unsafe_allow_html=True)
 
 
 
